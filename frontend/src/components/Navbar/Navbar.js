@@ -5,7 +5,6 @@ import './Navbar.css';
 const Navbar = () => {
   const location = useLocation();
 
-  // دالة للتحقق من الرابط النشط
   const isActive = (path) => {
     return location.pathname === path ? 'nav-link active-link' : 'nav-link';
   };
