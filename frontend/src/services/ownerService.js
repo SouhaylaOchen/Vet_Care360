@@ -1,6 +1,5 @@
 const BASE_URL = "http://localhost:5000/api/owners";
 
-// إنشاء مالك جديد
 export const createOwner = async (ownerData) => {
   const response = await fetch(BASE_URL, {
     method: "POST",
@@ -14,21 +13,18 @@ export const createOwner = async (ownerData) => {
   return await response.json();
 };
 
-// جلب مالك بالمعرف فقط
 export const getOwnerById = async (id) => {
   const response = await fetch(`${BASE_URL}/${id}`);
   if (!response.ok) throw new Error("Failed to fetch owner");
   return await response.json();
 };
 
-// جلب مالك مع الحيوانات والزيارات
 export const getOwnerFullDetails = async (id) => {
   const response = await fetch(`${BASE_URL}/${id}/full`);
   if (!response.ok) throw new Error("Failed to fetch full owner details");
   return await response.json();
 };
 
-// تعديل بيانات مالك
 export const updateOwner = async (id, updatedData) => {
   const response = await fetch(`${BASE_URL}/${id}`, {
     method: "PUT",
@@ -42,7 +38,6 @@ export const updateOwner = async (id, updatedData) => {
   return await response.json();
 };
 
-// البحث عن مالك بالاسم
 export const searchOwnersByLastName = async (lastName) => {
   const url = lastName.trim()
     ? `${BASE_URL}/search?lastName=${encodeURIComponent(lastName)}`
