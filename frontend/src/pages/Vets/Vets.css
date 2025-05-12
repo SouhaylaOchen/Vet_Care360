@@ -1,0 +1,134 @@
+:root {
+  --primary-color: #3a7ca5;
+  --secondary-color: #2f6690;
+  --accent-color: #d9dcd6;
+  --light-color: #f8f9fa;
+  --dark-color: #16425b;
+  --text-color: #333;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.vets-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.vets-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.vets-header h1 {
+  color: var(--secondary-color);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.vets-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.vets-header p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.vets-table-container {
+  overflow-x: auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vets-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.vets-table thead {
+  background-color: var(--primary-color);
+}
+
+.vets-table th {
+  padding: 1rem;
+  text-align: left;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.vets-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  color: var(--text-color);
+  vertical-align: middle;
+}
+
+.vets-table tr:last-child td {
+  border-bottom: none;
+}
+
+.vets-table tr:hover {
+  background-color: rgba(58, 124, 165, 0.05);
+}
+
+.specialty-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.loading-state {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .vets-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  .vets-table th, 
+  .vets-table td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .vets-header h1 {
+    font-size: 1.8rem;
+  }
+}

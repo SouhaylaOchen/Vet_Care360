@@ -1,0 +1,113 @@
+/* AddVisit.css */
+.add-visit-page {
+    padding: 2rem 0;
+    background-color: #f8fafc;
+    min-height: 100vh;
+  }
+  
+  .add-visit-page .header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .add-visit-page .header h1 {
+    color: #2d3748;
+    font-size: 2.25rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .add-visit-page .header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #3b82f6);
+    border-radius: 2px;
+  }
+  
+  .add-visit-page .card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    border-top: 4px solid #10b981;
+  }
+  
+  .pet-info {
+    background: #f0fdf4;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid #10b981;
+  }
+  
+  .pet-info h3 {
+    color: #065f46;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .pet-info p {
+    margin: 0.5rem 0;
+    color: #374151;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.3);
+  }
+  
+  .actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: flex-end;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .add-visit-page .card {
+      padding: 1.5rem;
+    }
+    
+    .pet-info {
+      padding: 1rem;
+    }
+  }
