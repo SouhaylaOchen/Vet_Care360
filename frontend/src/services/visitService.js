@@ -1,6 +1,5 @@
 const BASE_URL = "http://localhost:5000/api/visits";
 
-// إنشاء زيارة جديدة
 export const createVisit = async (visitData) => {
   const response = await fetch(BASE_URL, {
     method: "POST",
@@ -17,7 +16,6 @@ export const createVisit = async (visitData) => {
   return await response.json();
 };
 
-// جلب جميع الزيارات الخاصة بحيوان معيّن
 export const getVisitsByPet = async (petId) => {
   const response = await fetch(`${BASE_URL}/pet/${petId}`);
 
