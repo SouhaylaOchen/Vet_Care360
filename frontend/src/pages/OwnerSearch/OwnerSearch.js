@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './OwnerSearch.css';
 
 const OwnerSearch = () => {
@@ -7,23 +8,25 @@ const OwnerSearch = () => {
   const [owners, setOwners] = useState([]);
   const [searched, setSearched] = useState(false);
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    // Simulate API call
-    if (lastName.trim() === '') {
-      // In a real app, this would fetch all owners
-      const mockOwners = [
-        { id: 1, firstName: 'George', lastName: 'Franklin', address: '110 W. Liberty St.', city: 'Madison', telephone: '6085551023' },
-        { id: 2, firstName: 'Betty', lastName: 'Davis', address: '638 Cardinal Ave.', city: 'Sun Prairie', telephone: '6085551749' },
-      ];
-      setOwners(mockOwners);
-    } else {
-      // Simulate filtered search
-      const mockOwners = [
-        { id: 1, firstName: 'George', lastName: 'Franklin', address: '110 W. Liberty St.', city: 'Madison', telephone: '6085551023' },
-      ];
-      setOwners(mockOwners);
+
+    try {
+      const response = await axios.get('http://localhost:5000/api/owners');
+      const allOwners = response.data;
+
+      const filtered = lastName.trim()
+        ? allOwners.filter((o) =>
+            o.lastName.toLowerCase().includes(lastName.trim().toLowerCase())
+          )
+        : allOwners;
+
+      setOwners(filtered);
+    } catch (error) {
+      console.error('Error searching owners:', error);
+      setOwners([]);
     }
+
     setSearched(true);
   };
 
@@ -72,14 +75,14 @@ const OwnerSearch = () => {
               </thead>
               <tbody>
                 {owners.map((owner) => (
-                  <tr key={owner.id}>
+                  <tr key={owner._id}>
                     <td>{owner.firstName} {owner.lastName}</td>
                     <td>{owner.address}</td>
                     <td>{owner.city}</td>
                     <td>{owner.telephone}</td>
                     <td>
                       <Link 
-                        to={`/owners/${owner.id}`} 
+                        to={`/owners/${owner._id}`} 
                         className="action-btn btn-view"
                       >
                         View Details
@@ -101,4 +104,4 @@ const OwnerSearch = () => {
   );
 };
 
-export default OwnerSearch;
+export default OwnerSearch;

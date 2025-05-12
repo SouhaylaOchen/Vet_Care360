@@ -1,9 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { getPetsByOwner, createPet } = require('../controllers/petController');
+
+const {
+  getPetById,
+  getPetsByOwner,
+  createPet,
+  updatePet,
+  deletePet,
+} = require('../controllers/petController');
 
 router.get('/owner/:ownerId', getPetsByOwner);
-router.post('/', createPet);
 router.get('/:petId', getPetById);
+router.post('/', createPet);
+router.put('/:petId', updatePet);
+router.delete('/:petId', deletePet);
 
 module.exports = router;
